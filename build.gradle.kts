@@ -55,7 +55,7 @@ dependencies {
 }
 
 tasks.shadowJar {
-    archiveFileName.set("WeaponMechanicsPlus-${project.version}.jar")
+    archiveFileName.set("WeaponMechanicsPlus-${project.version}firemofefix.jar")
 
     // the kotlin plugin adds kotlin-stdlib to the classpath, but we don't want it in the shadow jar
     exclude("kotlin/**")
