@@ -39,8 +39,9 @@ class FireModeTriggerListener : TriggerListener {
         entityWrapper.mainHandData.cancelTasks()
         entityWrapper.offHandData.cancelTasks()
 
-        fireMode.switchMechanics?.use(CastData(entityWrapper.entity, weaponTitle, weaponStack))
-        val newWeaponTitle = fireMode.switch(weaponTitle, weaponStack)
+        val newWeaponTitle = fireMode.switch(weaponTitle, weaponStack) ?: return false
+
+        fireMode.switchMechanics?.use(CastData(entityWrapper.entity, newWeaponTitle, weaponStack))
 
         val weaponInfoDisplay = config.getObject("$newWeaponTitle.Info.Weapon_Info_Display", WeaponInfoDisplay::class.java)
         weaponInfoDisplay?.send(entityWrapper as PlayerWrapper, slot)
